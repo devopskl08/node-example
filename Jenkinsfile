@@ -13,7 +13,7 @@ pipeline{
     
                 echo "welcome to git hub account ${GITHUB_CRED}"
                 echo "username ${GITHUB_CRED_USR}"
-                echo "password is ${GITHUB_CRE_PSW}"
+                echo "password is ${GITHUB_CRED_PSW}"
             }
         }
     }
