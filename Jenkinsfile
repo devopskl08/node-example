@@ -5,25 +5,16 @@ pipeline{
     }
     environment{
         course = "kubernetes"
-        name = "likhitha"
-        cloud = "AWS"
+        github_cred = credentials('jenkins-pat-private')
     }
     stages{
         stage('first stage'){
-            environment {
-                cloud = "gcp"
-            }
             steps{
-                echo "helllo  ${name}!!"
+        
                 echo "welcome to ${course}. All the best ${name}"
-                echo "welcome to ${cloud}"
-            }
-        }
-        stage('second stage'){
-              steps{
-                   echo "helllo  ${name}!!"
-                echo "welcome to ${course}. All the best ${name}"
-                echo "welcome to ${cloud}"
+                echo "welcome to git hub account ${github_cred}"
+                echo "username ${github_cred_USR}"
+                echo "password is ${github_cred_USR_PSW}"
             }
         }
     }
