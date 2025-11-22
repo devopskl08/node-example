@@ -5,7 +5,7 @@ pipeline{
     }
     environment{
         course = "kubernetes"
-        github_cred = credentials('jenkins-pat-private')
+        github_cred = credentials('hanu_ssh_cred')
     }
     stages{
         stage('first stage'){
