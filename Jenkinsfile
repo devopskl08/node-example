@@ -19,7 +19,7 @@ pipeline{
                 echo "welcome to ${cloud}"
             }
         }
-        stage('second stage){
+        stage('second stage'){
               steps{
                    echo "helllo  ${name}!!"
                 echo "welcome to ${course}. All the best ${name}"
