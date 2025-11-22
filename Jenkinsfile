@@ -5,16 +5,16 @@ pipeline{
     }
     environment{
         course = "kubernetes"
-        github_cred = credentials('hanu_ssh_cred')
+        GITHUB_CRED = credentials('hanu_ssh_cred')
     }
     stages{
         stage('first stage'){
             steps{
         
                 echo "welcome to ${course}. All the best ${name}"
-                echo "welcome to git hub account ${github_cred}"
-                echo "username ${github_cred_USR}"
-                echo "password is ${github_cred_USR_PSW}"
+                echo "welcome to git hub account ${GITHUB_CRED}"
+                echo "username ${GITHUB_CRED_USR}"
+                echo "password is ${GITHUB_CRE_PSW}"
             }
         }
     }
