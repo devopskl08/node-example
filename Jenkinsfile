@@ -13,9 +13,9 @@ pipeline{
         }
         stage('prodenv'){
             when{
-                allOf{
+                anyOf{
                 branch 'development'
-                environment name: 'DEPLY_TO'  ,value: 'production'
+                environment name: 'DEPLY_TO'  ,value: 'development'
             }
             }
             steps{
