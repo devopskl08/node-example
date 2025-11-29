@@ -7,7 +7,7 @@ pipeline{
     }
     stages{
         stage('prodenv'){
-            when{
+            when {
                 DEPLY_TO = "production"
             }
             steps{
