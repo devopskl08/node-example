@@ -26,7 +26,7 @@ pipeline{
         stage('deplytostage'){
             when {
                 expression{
-                    BRANCH_NAME ==~  /(production|staging)/
+                    branch 'release/*'
                 }
             }
             steps{
@@ -46,4 +46,3 @@ pipeline{
         }
     }
 }
-
