@@ -24,15 +24,26 @@ pipeline{
             }
         }
         stage('deplytostage'){
+            when {
+                expression{
+                    BRANCH_NAME ==~  /(production|staging)/
+                }
+            }
             steps{
                 echo "deplying to stage"
             }
         }
 
         stage('deplytoprod'){
+            when {
+                expression{
+                    BRANCH_NAME ==~  /(production|staging)/
+                }
+            }
             steps{
                 echo "deplying to prod"
             }
         }
     }
+}
 }
