@@ -25,22 +25,21 @@ pipeline{
         }
         stage('deplytostage'){
             when {
-                    branch 'release/*'
+                    branch 'release-*'
+                }
             }
             steps{
                 echo "deplying to stage"
             }
-        }
 
         stage('deplytoprod'){
             when {
-                expression{
-                    BRANCH_NAME ==~  /(production|staging)/
+                //v1.2.3
+                    tag pattern: "v\\d{1,2}.\\d{1,2}.\\d{1,2}", comparator: "REGEXP"
                 }
-            }
             steps{
                 echo "deplying to prod"
             }
+         }
         }
-    }
 }
