@@ -2,16 +2,36 @@ pipeline{
     agent{
         label 'slave-1'
     }
-    environment{
-        DEPLY_TO = "development"
-    }
     stages{
-        stage('prodenv'){
-            when {
-               environment  name:'DEPLY_TO', value:'production'
-            }
+        stage('build'){
             steps{
-              echo "deply to prod"
+                echo "building applicayion"
+            }
+        }
+        stage('scans'){
+            steps{
+                echo "scans performing"
+            }
+        }
+        stage('deplytodev'){
+            steps{
+                echo "deplying to dev"
+            }
+        }
+        stage('deplytotest'){
+            steps{
+                echo "deplying to test"
+            }
+        }
+        stage('deplytostage'){
+            steps{
+                echo "deplying to stage"
+            }
+        }
+
+        stage('deplytoprod'){
+            steps{
+                echo "deplying to prod"
             }
         }
     }
