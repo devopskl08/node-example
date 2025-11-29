@@ -25,12 +25,16 @@ pipeline{
         }
         stage('deplytostage'){
             when {
+                anyOf{
                     branch 'release-*'
+                    tag pattern: "v\\d{1,2}.\\d{1,2}.\\d{1,2}", comparator: "REGEXP"
+                  }
                 }
             steps{
                 echo "deplying to stage"
             }
         }
+
         stage('deplytoprod'){
             when {
                 //v1.2.3
