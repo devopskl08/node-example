@@ -17,10 +17,11 @@ pipeline{
                 branch 'development'
                 environment name: 'DEPLY_TO'  ,value: 'production'
             }
+            }
             steps{
               echo "deply to prod"
             }
         }
      }
 }
-}
+
