@@ -1,20 +1,26 @@
-
 pipeline{
     agent{
         label 'slave-1'
     }
     environment{
-        course = "kubernetes"
-        GITHUB_CRED = credentials('hanu_ssh_cred')
+        DEPLY_TO = "development"
     }
     stages{
-        stage('first stage'){
+        stage('devenv'){
             steps{
-    
-                echo "welcome to git hub account ${GITHUB_CRED}"
-                echo "username ${GITHUB_CRED_USR}"
-                echo "password is ${GITHUB_CRED_PSW}"
+                echo "deploy to dev env"
             }
         }
-    }
+        stage('prodenv'){
+            when{
+                allOf{
+                branch 'development'
+                environment name: 'DEPLY_TO'  ,value: 'production'
+            }
+            steps{
+              echo "deply to prod"
+            }
+        }
+     }
+}
 }
