@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('prodenv'){
             when {
-                DEPLY_TO = "production"
+               environment  name:'DEPLY_TO', value:'production'
             }
             steps{
               echo "deply to prod"
