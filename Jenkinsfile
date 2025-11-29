@@ -25,9 +25,7 @@ pipeline{
         }
         stage('deplytostage'){
             when {
-                expression{
                     branch 'release/*'
-                 }
             }
             steps{
                 echo "deplying to stage"
