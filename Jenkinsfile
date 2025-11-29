@@ -27,11 +27,10 @@ pipeline{
             when {
                     branch 'release-*'
                 }
-            }
             steps{
                 echo "deplying to stage"
             }
-
+        }
         stage('deplytoprod'){
             when {
                 //v1.2.3
